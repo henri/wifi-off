@@ -3,9 +3,9 @@
 # (C) 2013 Henri Shustak
 # Licenced under the Apache Licence
 # http://www.apache.org/licenses/LICENSE-2.0
-# Latest copy of this script is available from :
+# Latest copy of this script is available from : http://www.github.com/henri/wifi-off
 
-# About : This script turns off wifi on the os x system
+# About : This script turns off wi-fi on the os x system(s)
 
 #intenral variabls
 NETWORKSETUPCOMMAND="/usr/sbin/networksetup"
