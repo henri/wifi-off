@@ -5,7 +5,7 @@
 About
 --------
 
-This is an open source (Apache 2.0) script and package build system which is designed to make building a package to turn off wi-fi on a Mac OS X system.
+This is an open source (Apache 2.0) script and package build system which is designed to turn off wi-fi on a Mac OS X system(s).
 
 License: [Apache 2.0 License][1]
 
