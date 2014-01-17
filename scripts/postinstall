@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# (C) 2013 Henri Shustak
+# Licenced under the Apache Licence
+# http://www.apache.org/licenses/LICENSE-2.0
+# Latest copy of this script is available from :
+
+# About : This script turns off wifi on the os x system
+
+#intenral variabls
+NETWORKSETUPCOMMAND="/usr/sbin/networksetup"
+WIRELESSHARDWAREDEVICE=""
+
+# Check if there was a WIRELESSHARDWAREDEVICE varible specified (eg. en1, en0)
+if [ "${WIRELESSHARDWAREDEVICE}" == "" ] ; then 
+	# attempt to dynamically calculate which device should be used, based on default names for network devices.
+	if [ `uname -r | awk -F "." '{print $1}'` -le 10 ] ; then DEFAULTWIRELESSNETWORKNAME="AirPort" ; else DEFAULTWIRELESSNETWORKNAME="Wi-Fi" ; fi
+	WIRELESSHARDWAREDEVICE=`networksetup -listallhardwareports | grep "${DEFAULTWIRELESSNETWORKNAME}" -A 1 | tail -n 1 | awk -F "Device: " '{print $2}'`
+fi
+
+# Switch off the airport
+"${NETWORKSETUPCOMMAND}" -setairportpower en1 off
+if [ $? != 0 ] ; then
+	exit -1
+fi
+
+exit 0
